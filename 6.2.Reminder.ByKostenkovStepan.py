@@ -15,6 +15,12 @@ def set():
         try:
             hour = int(rem.split(":")[0])
             minute = int(rem.split(":")[1])
+            if hour < 0 or hour > 23:
+                mb.showerror("Ошибка", "Часы должны быть в диапазоне 0-23")
+                return
+            if minute < 0 or minute > 59:
+                mb.showerror("Ошибка", "Минуты должны быть в диапазоне 0-59")
+                return
             now = datetime.datetime.now()
             print(now)
             dt = now.replace(hour=hour, minute=minute, second=0)
